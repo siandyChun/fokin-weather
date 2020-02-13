@@ -16,14 +16,25 @@ export default class extends React.Component {
   //날씨정보
   getWeather = async(latitude, longitude) => {
     //http통신
-    const {data} = await axios.get(
+    const {
+      data: {
+        main :{temp},
+        weather
+      }
+    } = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`
     );
+    
     //데이터 콘솔출력
     //console.log(data);
-    this.setState({isLoading:false, temp: data.main.temp})
+    this.setState({
+      isLoading:false, 
+      condition: weather[0].main,
+      temp
+    })
   };
   
+
   //위치정보
   getLocation = async() => {
     try{
@@ -44,7 +55,7 @@ export default class extends React.Component {
   }
 
   render() {
-    const { isLoading, temp } = this.state;
-    return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} />;
+    const { isLoading, temp, condition } = this.state;
+    return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} condition={condition} />;
   }
 }   

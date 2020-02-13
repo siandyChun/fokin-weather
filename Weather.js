@@ -8,8 +8,26 @@ export default function Weather({temp}) {
     </View>
 };
 
-Weather.PropTypes = {
-    temp:PropTypes.number.isRequired
+Weather.propTypes = {
+    temp:PropTypes.number.isRequired,
+    conditions:PropTypes.oneOf([ 
+        "Thunderstorm",
+        "Drizzle",
+        "Rain",
+        "Snow",
+        "Mist",
+        "Smoke",
+        "Haze",
+        "Dust",
+        "Fog",
+        "Sand",
+        "Dust",
+        "Ash",
+        "Squall",
+        "Tornado",
+        "Clear",
+        "Clouds"
+    ]).isRequired
 };
 
 
