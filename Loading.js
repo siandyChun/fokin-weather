@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 
 
 // 로딩 패이지
 export default function Loading(){
     return <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
         <Text style={styles.text}>Getting the Fucking Weather</Text>
     </View>
 }
