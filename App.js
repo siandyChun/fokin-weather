@@ -40,7 +40,7 @@ export default class extends React.Component {
     try{
       //throw Error();
       await Location.requestPermissionsAsync();
-      const {coords: { latitude, longitude}} = await Location.getCurrentPositionAsync();
+      const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
       this.getWeather(latitude, longitude);
       //this.setState({ isLoading: false});
       //console.log(coords.longitude, coords.latitude);
